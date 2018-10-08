@@ -10,21 +10,18 @@ import UIKit
 
 class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        return elements.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        _ = TableView.dequeueReusableCell(withIdentifier: "Re", for: indexPath)
     }
-    
     
     @IBOutlet weak var TableView: UITableView!
     
     
-    // 딕셔너리의 배열 저장 : item
     var item:[[String:String]] = []
     
-    // 딕셔너리 : item [key:value]
     var elements:[[String:String]] = []
     
     var currentElement = ""
@@ -63,10 +60,14 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         
         let data = string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
-        
+        print("data = \(data)")
         if !data.isEmpty {
-            elements[currentElement] = data
+            item[currentElement] = data
         }
-        
-}
+    }
+   func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        if elementName == "item" {
+            elements.append(item)
+        }
+    }
 }
