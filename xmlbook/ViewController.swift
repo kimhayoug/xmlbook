@@ -12,16 +12,15 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
     
     @IBOutlet weak var tableview: UITableView!
     
-    // 딕셔너리의 배열 저장 : item
     var item:[[String:String]] = []
-    // 딕셔너리 : item [key:value]
+
     var items:[String:String] = [:]
     
     var currentElement = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         
         tableview.dataSource = self
         
