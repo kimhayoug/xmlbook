@@ -20,7 +20,7 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
     @IBOutlet weak var TableView: UITableView!
     
     
-    var item:[[String:String]] = []
+    var item:[String:String] = [:]
     
     var elements:[[String:String]] = []
     
