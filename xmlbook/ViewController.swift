@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource{
     
-    @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var mytableview: UITableView!
     
     var item:[[String:String]] = []
 
@@ -22,7 +22,7 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
         super.viewDidLoad()
         
         
-        tableview.dataSource = self
+        mytableview.dataSource = self
         
         if let path = Bundle.main.url(forResource: "book", withExtension: "xml") {
             if let myParser = XMLParser(contentsOf: path) {
@@ -72,7 +72,7 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableview.dequeueReusableCell(withIdentifier: "Re", for: indexPath)
+        let cell = mytableview.dequeueReusableCell(withIdentifier: "Re", for: indexPath)
         let item1 = item[indexPath.row]
         
         cell.textLabel?.text = item1["title"]
