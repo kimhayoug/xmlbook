@@ -6,7 +6,21 @@
 //  Copyright © 2018년 D7703_23. All rights reserved.
 //
 
-import Foundation
-class FruitData {
- var title = ""
- var author = ""
+import UIKit
+
+class TableViewCell: UITableViewCell {
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var subtitle: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
+}

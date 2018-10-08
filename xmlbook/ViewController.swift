@@ -8,38 +8,30 @@
 
 import UIKit
 
-class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return elements.count
-    }
+class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource{
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        _ = TableView.dequeueReusableCell(withIdentifier: "Re", for: indexPath)
-    }
+    @IBOutlet weak var tableview: UITableView!
     
-    @IBOutlet weak var TableView: UITableView!
-    
-    
-    var item:[String:String] = [:]
-    
-    var elements:[[String:String]] = []
+    // 딕셔너리의 배열 저장 : item
+    var item:[[String:String]] = []
+    // 딕셔너리 : item [key:value]
+    var items:[String:String] = [:]
     
     var currentElement = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
         
-        TableView.dataSource = self
+        tableview.dataSource = self
         
         if let path = Bundle.main.url(forResource: "book", withExtension: "xml") {
-            
-            if let paser = XMLParser(contentsOf: path) {
-                paser.delegate = self
-                
-                if paser.parse() {
+            if let myParser = XMLParser(contentsOf: path) {
+                myParser.delegate = self
+                if myParser.parse() {
                     print("파싱 성공")
                     
-                    print(elements)
+                    print("elements = \(items)")
                     
                 } else {
                     print("파싱 오류2")
@@ -54,20 +46,42 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         currentElement = elementName
-        // Do any additional setup after loading the view, typically from a nib.
+        //print(elementName)
+        
+        
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         
         let data = string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
-        print("data = \(data)")
+        
         if !data.isEmpty {
-            item[currentElement] = data
+            items[currentElement] = data
+            //print(item[currentElement])
+        }
+        
+    }
+    
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        if elementName == "book" {
+            item.append(items)
         }
     }
-   func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if elementName == "item" {
-            elements.append(item)
-        }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return item.count
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableview.dequeueReusableCell(withIdentifier: "RE", for: indexPath)
+        let item1 = item[indexPath.row]
+        
+        cell.textLabel?.text = item1["title"]
+        cell.detailTextLabel?.text = item1["author"]
+        
+        return cell
+    }
+    
+    
 }
+
