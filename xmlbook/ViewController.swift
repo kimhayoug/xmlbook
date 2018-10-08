@@ -72,7 +72,7 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableview.dequeueReusableCell(withIdentifier: "RE", for: indexPath)
+        let cell = tableview.dequeueReusableCell(withIdentifier: "Re", for: indexPath)
         let item1 = item[indexPath.row]
         
         cell.textLabel?.text = item1["title"]
