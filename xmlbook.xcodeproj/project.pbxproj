@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD013BE6216B036700F8AB85 /* Tableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD013BE5216B036700F8AB85 /* Tableview.swift */; };
+		FD013BE8216B03A800F8AB85 /* book.xml in Resources */ = {isa = PBXBuildFile; fileRef = FD013BE7216B03A700F8AB85 /* book.xml */; };
 		FD0C8AC62163383B0097A6B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C8AC52163383B0097A6B9 /* AppDelegate.swift */; };
 		FD0C8AC82163383B0097A6B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C8AC72163383B0097A6B9 /* ViewController.swift */; };
 		FD0C8ACB2163383B0097A6B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD0C8AC92163383B0097A6B9 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD013BE5216B036700F8AB85 /* Tableview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tableview.swift; sourceTree = "<group>"; };
+		FD013BE7216B03A700F8AB85 /* book.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = book.xml; path = "../../../Desktop/201412409 이정연/book/book/book.xml"; sourceTree = "<group>"; };
 		FD0C8AC22163383B0097A6B9 /* xmlbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xmlbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD0C8AC52163383B0097A6B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD0C8AC72163383B0097A6B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,12 +58,14 @@
 		FD0C8AC42163383B0097A6B9 /* xmlbook */ = {
 			isa = PBXGroup;
 			children = (
+				FD013BE7216B03A700F8AB85 /* book.xml */,
 				FD0C8AC52163383B0097A6B9 /* AppDelegate.swift */,
 				FD0C8AC72163383B0097A6B9 /* ViewController.swift */,
 				FD0C8AC92163383B0097A6B9 /* Main.storyboard */,
 				FD0C8ACC2163383E0097A6B9 /* Assets.xcassets */,
 				FD0C8ACE2163383E0097A6B9 /* LaunchScreen.storyboard */,
 				FD0C8AD12163383E0097A6B9 /* Info.plist */,
+				FD013BE5216B036700F8AB85 /* Tableview.swift */,
 			);
 			path = xmlbook;
 			sourceTree = "<group>";
@@ -124,6 +130,7 @@
 			files = (
 				FD0C8AD02163383E0097A6B9 /* LaunchScreen.storyboard in Resources */,
 				FD0C8ACD2163383E0097A6B9 /* Assets.xcassets in Resources */,
+				FD013BE8216B03A800F8AB85 /* book.xml in Resources */,
 				FD0C8ACB2163383B0097A6B9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +144,7 @@
 			files = (
 				FD0C8AC82163383B0097A6B9 /* ViewController.swift in Sources */,
 				FD0C8AC62163383B0097A6B9 /* AppDelegate.swift in Sources */,
+				FD013BE6216B036700F8AB85 /* Tableview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
